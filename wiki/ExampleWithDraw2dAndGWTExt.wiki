@@ -1,4 +1,4 @@
-#summary One-sentence summary of this page.
+#summary This page shows a simple test using Draw2d and GWT-Ext
 
 = Example with Draw2d + GWT-Ext =
 
