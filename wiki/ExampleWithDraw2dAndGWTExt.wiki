@@ -1,0 +1,138 @@
+#summary One-sentence summary of this page.
+
+= Example with Draw2d + GWT-Ext =
+
+This page shows a simple test using Draw2d and GWT-Ext. You must provide images, such as Start.png which is used in com/pru/client/Pruebas.java. Also, copy the Ext-js library in public/js and Draw2d files in public/draw2d.
+
+Create the following files:
+
+
+== com/pru/Pruebas.gwt.xml ==
+{{{
+<module>
+	<!-- Inherit the core Web Toolkit stuff.                  -->
+	<inherits name='com.google.gwt.user.User'/>
+	<inherits name='org.gwtdraw2d.GwtDraw2d'/>
+	<inherits name='com.gwtext.GwtExt'/>
+
+	<!-- Specify the app entry point class.                   -->
+	<entry-point class='com.pru.client.Pruebas'/>
+	
+	<stylesheet src="js/ext/resources/css/borders.css" />
+	<stylesheet src="js/ext/resources/css/box.css" />
+	<stylesheet src="js/ext/resources/css/button.css" />
+	<stylesheet src="js/ext/resources/css/combo.css" />
+	<stylesheet src="js/ext/resources/css/core.css" />
+	<stylesheet src="js/ext/resources/css/date-picker.css" />
+	<stylesheet src="js/ext/resources/css/dd.css" />
+	<stylesheet src="js/ext/resources/css/debug.css" />
+	<stylesheet src="js/ext/resources/css/dialog.css" />
+	<stylesheet src="js/ext/resources/css/editor.css" />
+	<stylesheet src="js/ext/resources/css/form.css" />
+	<stylesheet src="js/ext/resources/css/grid.css" />
+	<stylesheet src="js/ext/resources/css/layout.css" />
+	<stylesheet src="js/ext/resources/css/menu.css" />
+	<stylesheet src="js/ext/resources/css/panel.css" />
+	<stylesheet src="js/ext/resources/css/progress.css" />
+	<stylesheet src="js/ext/resources/css/qtips.css" />
+	<stylesheet src="js/ext/resources/css/reset.css" />
+	<stylesheet src="js/ext/resources/css/reset-min.css" />
+	<stylesheet src="js/ext/resources/css/resizable.css" />
+	<stylesheet src="js/ext/resources/css/tabs.css" />
+	<stylesheet src="js/ext/resources/css/toolbar.css" />
+	<stylesheet src="js/ext/resources/css/tree.css" />
+	<stylesheet src="js/ext/resources/css/window.css" />
+</module>
+}}}
+== com/pru/client/Pruebas.java ==
+{{{
+package com.pru.client;
+
+import org.gwtdraw2d.client.Color;
+import org.gwtdraw2d.client.ImageFigure;
+import org.gwtdraw2d.client.OutputPort;
+import org.gwtdraw2d.client.Workflow;
+
+import com.google.gwt.core.client.EntryPoint;
+import com.gwtext.client.core.EventObject;
+import com.gwtext.client.core.RegionPosition;
+import com.gwtext.client.widgets.Button;
+import com.gwtext.client.widgets.Panel;
+import com.gwtext.client.widgets.Viewport;
+import com.gwtext.client.widgets.event.ButtonListenerAdapter;
+import com.gwtext.client.widgets.layout.BorderLayout;
+import com.gwtext.client.widgets.layout.BorderLayoutData;
+
+public class Pruebas implements EntryPoint {
+    private Workflow workflow;
+
+    public void onModuleLoad() {
+        Panel borderPanel = new Panel();
+        borderPanel.setLayout(new BorderLayout());
+
+        Panel leftPanel = new Panel("menu");
+        leftPanel.setCollapsible(true);
+        leftPanel.setWidth(200);
+
+        Panel centerPanel = new Panel("principal");
+        final Panel miPanel = new Panel();
+
+        centerPanel.add(miPanel);
+
+        leftPanel.add(new Button("Dale", new ButtonListenerAdapter() {
+
+            public void onClick(Button button, EventObject e) {
+                if (workflow == null) {
+                    workflow = new Workflow(miPanel.getId());
+                }
+                ImageFigure figure = new ImageFigure("Start.png");
+                figure.setDimension(50, 50);
+
+                OutputPort outputPort = new OutputPort();
+                outputPort.setBackgroundColor(new Color(245, 115, 115));
+
+                figure.addPort(outputPort, 50, 25);
+
+                workflow.addFigure(figure, 200, 100);
+            }
+        }));
+
+        borderPanel.add(leftPanel, new BorderLayoutData(RegionPosition.WEST));
+        borderPanel.add(centerPanel,
+                new BorderLayoutData(RegionPosition.CENTER));
+
+        new Viewport(borderPanel);
+    }
+
+}
+}}}
+== com/pru/public/Pruebas.html ==
+{{{
+<html>
+	<head>
+		<title>Wrapper HTML for Pruebas</title>
+		<meta http-equiv="pragma" content="no-cache"/>
+	</head>
+	<body>
+
+
+		<!-- OPTIONAL: include this if you want history support -->
+		<iframe src="javascript:''" id="__gwt_historyFrame" style="width:0;height:0;border:0"></iframe>
+
+		<!--include Draw2d files-->
+		<SCRIPT src="draw2d/wz_jsgraphics.js"></SCRIPT>
+		<SCRIPT src="draw2d/mootools.js"></SCRIPT>
+		<SCRIPT src="draw2d/moocanvas.js"></SCRIPT>
+		<SCRIPT src="draw2d/draw2d.js"></SCRIPT>
+
+		<!--include the Ext Core API-->
+		<script type="text/javascript" src="js/ext/adapter/ext/ext-base.js"></script>
+
+		<!--include Ext -->
+		<script type="text/javascript" src="js/ext/ext-all.js"></script>
+
+   		<script type="text/javascript" language="javascript" src="com.pru.Pruebas.nocache.js"></script>
+   		
+	</body>
+</html>
+}}}
