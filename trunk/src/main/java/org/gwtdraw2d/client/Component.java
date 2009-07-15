@@ -1,6 +1,5 @@
 package org.gwtdraw2d.client;
 
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
@@ -63,6 +62,7 @@ public abstract class Component {
      * @param arguments The arguments
      * @return The returned value. Null if the method is void
      */
+    // TODO: Find a way to build a generic return value (not just JavaScriptObject)
     private native JavaScriptObject invokeNative(final JavaScriptObject target,
             final String method, final List<Object> arguments) /*-{
         var size = arguments.@java.util.List::size()(0);
