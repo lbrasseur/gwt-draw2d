@@ -6,7 +6,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  * Wrapper for draw2d.ImageFigure.
  * @author lautaro.brasseur
  */
-public class ImageFigure extends Figure {
+public class ImageFigure extends Node {
     /**
      * The URL for the image.
      */
