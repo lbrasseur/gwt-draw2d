@@ -7,11 +7,25 @@ import com.google.gwt.core.client.JavaScriptObject;
  * @author lautaro.brasseur
  * TODO: Start coding the wrapper!. 
  */
-public class Annotation extends Component {
+public class Annotation extends Figure {
+    /**
+     * The message.
+     */
+    private String msg;
+
+    /**
+     * Constructor.
+     * @param aMsg The message
+     */
+    public Annotation(final String aMsg) {
+        this.msg = aMsg;
+    }
+
     /**
      * {@inheritDoc}
      */
     protected native JavaScriptObject create() /*-{
-        return new $wnd.draw2d.Annotation();
+        var msg = this.@org.gwtdraw2d.client.Annotation::msg;
+        return new $wnd.draw2d.Annotation(msg);
     }-*/;
 }
