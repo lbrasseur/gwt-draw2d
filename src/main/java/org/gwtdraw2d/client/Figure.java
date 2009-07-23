@@ -28,17 +28,6 @@ public class Figure extends Component {
      * @param height The height
      */
     public final void setDimension(final int width, final int height) {
-        invoke("setDimension", width, height);
-    }
-
-    /**
-     * Adds a port.
-     * @param port The port
-     * @param x The X coordinate
-     * @param y The Y coordinate
-     */
-    public final void addPort(final Port port, final int x, final int y) {
-        invoke(port.getJsObj(), "setWorkflow", invoke("getWorkflow"));
-        invoke("addPort", port.getJsObj(), x, y);
+        invoke("draw2d.Figure.prototype.setDimension", width, height);
     }
 }

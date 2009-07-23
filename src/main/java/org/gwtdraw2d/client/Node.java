@@ -14,4 +14,16 @@ public class Node extends Figure {
     protected native JavaScriptObject create() /*-{
         return new $wnd.draw2d.Node();
     }-*/;
+
+
+    /**
+     * Adds a port.
+     * @param port The port
+     * @param x The X coordinate
+     * @param y The Y coordinate
+     */
+    public final void addPort(final Port port, final int x, final int y) {
+        invoke(port.getJsObj(), "setWorkflow", invoke("getWorkflow"));
+        invoke("addPort", port.getJsObj(), x, y);
+    }
 }
