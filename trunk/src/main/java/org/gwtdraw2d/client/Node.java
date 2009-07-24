@@ -22,8 +22,11 @@ public class Node extends Figure {
      * @param x The X coordinate
      * @param y The Y coordinate
      */
-    public final void addPort(final Port port, final int x, final int y) {
-        invoke(port.getJsObj(), "setWorkflow", invoke("getWorkflow"));
-        invoke("addPort", port.getJsObj(), x, y);
-    }
+    public final native void addPort(final Port port, final int x, final int y) /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Node::getJsObj()();
+        var jsPort = port.@org.gwtdraw2d.client.Port::getJsObj()();
+        
+        jsPort.setWorkflow(jsThis.workflow);
+        jsThis.addPort(jsPort, x, y);
+    }-*/;
 }

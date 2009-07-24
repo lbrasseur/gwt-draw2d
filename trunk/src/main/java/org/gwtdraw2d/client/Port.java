@@ -18,9 +18,12 @@ public class Port extends Rectangle {
      * Sets the background color.
      * @param color The color to be set
      */
-    public final void setBackgroundColor(final Color color) {
-        invoke("setBackgroundColor", color.getJsObj());
-    }
+    public final native void setBackgroundColor(final Color color) /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Node::getJsObj()();
+        var jsColor = color.@org.gwtdraw2d.client.Color::getJsObj()();
+
+        jsThis.setBackgroundColor(jsColor);
+    }-*/;
 
     /**
      * Adds a port listener.

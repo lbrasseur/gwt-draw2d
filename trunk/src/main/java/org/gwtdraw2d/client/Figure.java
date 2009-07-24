@@ -18,16 +18,22 @@ public class Figure extends Component {
      * Sets the workflow.
      * @param workflow The workflow
      */
-    public final void setWorkflow(final Workflow workflow) {
-        invoke("setWorkflow", workflow.getJsObj());
-    };
+    public final native void setWorkflow(final Workflow workflow) /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+        var jsWorkflow = workflow.@org.gwtdraw2d.client.Workflow::getJsObj()();
+
+        jsThis.setWorkflow(jsWorkflow);
+    }-*/;
 
     /**
      * Sets the figure dimension.
      * @param width The width
      * @param height The height
      */
-    public final void setDimension(final int width, final int height) {
-        invoke("draw2d.Figure.prototype.setDimension", width, height);
-    }
+    public final native void setDimension(final int width,
+            final int height) /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+
+        jsThis.setDimension(width, height);
+    }-*/;
 }
