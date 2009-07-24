@@ -34,8 +34,12 @@ public class Workflow extends Component {
      * @param x The X coordinate
      * @param y The Y coordinate
      */
-    public final void addFigure(final Figure figure, final int x, final int y) {
-        figure.setWorkflow(this);
-        invoke("addFigure", figure.getJsObj(), x, y);
-    }
+    public final native void addFigure(final Figure figure,
+            final int x, final int y) /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Node::getJsObj()();
+        var jsFigure = figure.@org.gwtdraw2d.client.Figure::getJsObj()();
+
+        jsFigure.setWorkflow(jsThis.workflow);
+        jsThis.addFigure(jsFigure, x, y);
+    }-*/;
 }
