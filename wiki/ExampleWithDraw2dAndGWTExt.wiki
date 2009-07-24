@@ -48,9 +48,17 @@ Create the following files:
 {{{
 package com.pru.client;
 
+import java.util.Date;
+
+import org.gwtdraw2d.client.Annotation;
 import org.gwtdraw2d.client.Color;
+import org.gwtdraw2d.client.CommandConnect;
+import org.gwtdraw2d.client.Connection;
 import org.gwtdraw2d.client.ImageFigure;
+import org.gwtdraw2d.client.InputPort;
 import org.gwtdraw2d.client.OutputPort;
+import org.gwtdraw2d.client.Port;
+import org.gwtdraw2d.client.PortListener;
 import org.gwtdraw2d.client.Workflow;
 
 import com.google.gwt.core.client.EntryPoint;
@@ -62,6 +70,7 @@ import com.gwtext.client.widgets.Viewport;
 import com.gwtext.client.widgets.event.ButtonListenerAdapter;
 import com.gwtext.client.widgets.layout.BorderLayout;
 import com.gwtext.client.widgets.layout.BorderLayoutData;
+import com.gwtext.client.widgets.layout.VerticalLayout;
 
 public class Pruebas implements EntryPoint {
     private Workflow workflow;
@@ -74,10 +83,12 @@ public class Pruebas implements EntryPoint {
         leftPanel.setCollapsible(true);
         leftPanel.setWidth(200);
 
-        Panel centerPanel = new Panel("principal");
+        final Panel centerPanel = new Panel("principal");
         final Panel miPanel = new Panel();
 
         centerPanel.add(miPanel);
+        
+        leftPanel.setLayout(new VerticalLayout(10));
 
         leftPanel.add(new Button("Dale", new ButtonListenerAdapter() {
 
@@ -87,16 +98,66 @@ public class Pruebas implements EntryPoint {
                 }
                 ImageFigure figure = new ImageFigure("Start.png");
                 figure.setDimension(50, 50);
+                figure.setWorkflow(workflow);
 
                 OutputPort outputPort = new OutputPort();
                 outputPort.setBackgroundColor(new Color(245, 115, 115));
-
                 figure.addPort(outputPort, 50, 25);
+                
+                /*
+                 * By default, a connection is created, so, listeners must be
+                 * removed. Test uncommenting the following line and the next
+                 * listener (the effect should be the same)
+                 */
+                outputPort.removeListeners();
+                
+                outputPort.addListener(new PortListener() {
+                    public void onDrop(Port source, Port target) {
+                        CommandConnect command = new CommandConnect(workflow, source, target);
+                        command.setConnection(new Connection());
+                        
+                        workflow.getCommandStack().execute(command);
+                    }
+                });
+
+                outputPort.addListener(new PortListener() {
+                    public void onDrop(Port source, Port target) {
+                        centerPanel.setTitle(""+ new Date());
+                    }
+                });
+                
+                InputPort inputPort = new InputPort();
+                inputPort.setBackgroundColor(new Color(115,115,245));
+                figure.addPort(inputPort, 0, 25);
+                
 
                 workflow.addFigure(figure, 200, 100);
             }
         }));
 
+        
+        leftPanel.add(new Button("Imagen resizable", new ButtonListenerAdapter() {
+            public void onClick(Button button, EventObject e) {
+                if (workflow == null) {
+                    workflow = new Workflow(miPanel.getId());
+                }
+                ImageFigure figure = new ImageFigure("Image.gif");
+                figure.setDimension(150, 300);
+                workflow.addFigure(figure, 10, 10);
+            }
+        }));
+
+        leftPanel.add(new Button("Anotacion", new ButtonListenerAdapter() {
+            public void onClick(Button button, EventObject e) {
+                if (workflow == null) {
+                    workflow = new Workflow(miPanel.getId());
+                }
+                Annotation annotation = new Annotation("Hola, esto es un texto en una anotiacion");
+                annotation.setDimension(100, 50);
+                workflow.addFigure(annotation, 20, 20);
+            }
+        }));
+        
         borderPanel.add(leftPanel, new BorderLayoutData(RegionPosition.WEST));
         borderPanel.add(centerPanel,
                 new BorderLayoutData(RegionPosition.CENTER));
