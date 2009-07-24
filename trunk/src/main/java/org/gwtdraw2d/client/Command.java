@@ -9,6 +9,21 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Command extends Component {
     /**
+     * Default constructor.
+     */
+    public Command() {
+        super();
+    }
+
+    /**
+     * Constructor passing JavaScriptObject.
+     * @param aJsObj the JavaScriptObject
+     */
+    public Command(final JavaScriptObject aJsObj) {
+        super(aJsObj);
+    }
+
+    /**
      * {@inheritDoc}
      */
     protected native JavaScriptObject create() /*-{

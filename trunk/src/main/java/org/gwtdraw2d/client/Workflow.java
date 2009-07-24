@@ -42,4 +42,16 @@ public class Workflow extends Component {
         jsFigure.setWorkflow(jsThis.workflow);
         jsThis.addFigure(jsFigure, x, y);
     }-*/;
+
+    /**
+     * Returns the command stack.
+     * @return The CommandStack
+     */
+    public final native CommandStack getCommandStack() /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Workflow::getJsObj()();
+
+        var commandStack = @org.gwtdraw2d.client.CommandStack::new(Lcom/google/gwt/core/client/JavaScriptObject;)(jsThis.getCommandStack());
+
+        return commandStack;
+    }-*/;
 }
