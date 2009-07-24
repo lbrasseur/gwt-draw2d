@@ -7,7 +7,8 @@ package org.gwtdraw2d.client;
 public interface PortListener {
     /**
      * Callback for drop on another port.
-     * @param port The port
+     * @param source The source port
+     * @param target The target port
      */
-    void onDrop(Port port);
+    void onDrop(Port source, Port target);
 }

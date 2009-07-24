@@ -25,22 +25,32 @@ public class Port extends Rectangle {
         jsThis.setBackgroundColor(jsColor);
     }-*/;
 
+
     /**
-     * Adds a port listener.
-     * @param portListener The port listener
+     * Removes all the listeners.
      */
-    public final void addListener(final PortListener portListener) {
-        addListener(getJsObj(), portListener);
-    }
+    public final native void removeListeners() /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();
+        jsThis.onDrop = null;
+    }-*/;
 
     /**
      * Adds a port listener.
      * @param portListener The port listener
      */
-    public final native void addListener(JavaScriptObject target, PortListener portListener)/*-{
-        target.onDrop = function(port) {
-            alert(123);
-            //portListener.@org.gwtdraw2d.client.PortListener::onDrop(Lorg/gwtdraw2d/client/Port)(null);
+    public final native void addListener(final PortListener portListener) /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();
+        var thisPort = this;
+
+        var oldOnDrop = jsThis.onDrop;
+
+        jsThis.onDrop = function(port) {
+            if (oldOnDrop) {
+                oldOnDrop.call(jsThis, port);
+            }
+            var portComponent = @org.gwtdraw2d.client.Component::getComponent(Ljava/lang/String;)(port.id);
+
+            portListener.@org.gwtdraw2d.client.PortListener::onDrop(Lorg/gwtdraw2d/client/Port;Lorg/gwtdraw2d/client/Port;)(thisPort,portComponent);
         }
     }-*/;
 }
