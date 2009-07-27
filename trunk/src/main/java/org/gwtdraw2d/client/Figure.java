@@ -36,4 +36,12 @@ public class Figure extends Component {
 
         jsThis.setDimension(width, height);
     }-*/;
+
+    /**
+     * Sets the menu builder.
+     * @param menuBuilder The menu builder
+     */
+    public final void setMenuBuilder(final MenuBuilder menuBuilder) {
+        setMenuBuilder(getJsObj(), menuBuilder);
+    }
 }

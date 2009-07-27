@@ -14,4 +14,23 @@ public class Line extends Component {
     protected native JavaScriptObject create() /*-{
         return new $wnd.draw2d.Line();
     }-*/;
+
+    /**
+     * Set the line width. This enforce a repaint of the line. This method fires
+     * a document dirty event.
+     * @param width The new line width of the figure.
+     */
+    public final native void setLineWidth(final int width) /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Line::getJsObj()();
+        
+        jsThis.setLineWidth(width);
+    }-*/;
+
+    /**
+     * Sets the menu builder.
+     * @param menuBuilder The menu builder
+     */
+    public final void setMenuBuilder(final MenuBuilder menuBuilder) {
+        setMenuBuilder(getJsObj(), menuBuilder);
+    }
 }

@@ -79,4 +79,18 @@ public abstract class Component {
             final String jsObjId) /*-{
         return $wnd.gwtdraw2d.idMap[jsObjId];
     }-*/;
+
+    /**
+     * Sets the menu builder.
+     * @param target The target JavaScriptObject
+     * @param menuBuilder The menu builder
+     */
+    protected final native void setMenuBuilder(final JavaScriptObject target,
+            final MenuBuilder menuBuilder) /*-{
+           target.getContextMenu = function() {
+               var menu = menuBuilder.@org.gwtdraw2d.client.MenuBuilder::buildMenu()();
+               var jsMenu = menu.@org.gwtdraw2d.client.Menu::getJsObj()();
+               return jsMenu;
+           }
+       }-*/;
 }
