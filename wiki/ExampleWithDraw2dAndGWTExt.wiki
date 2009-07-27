@@ -56,6 +56,10 @@ import org.gwtdraw2d.client.CommandConnect;
 import org.gwtdraw2d.client.Connection;
 import org.gwtdraw2d.client.ImageFigure;
 import org.gwtdraw2d.client.InputPort;
+import org.gwtdraw2d.client.Menu;
+import org.gwtdraw2d.client.MenuBuilder;
+import org.gwtdraw2d.client.MenuItem;
+import org.gwtdraw2d.client.MenuItemCallback;
 import org.gwtdraw2d.client.OutputPort;
 import org.gwtdraw2d.client.Port;
 import org.gwtdraw2d.client.PortListener;
@@ -65,6 +69,7 @@ import com.google.gwt.core.client.EntryPoint;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.RegionPosition;
 import com.gwtext.client.widgets.Button;
+import com.gwtext.client.widgets.MessageBox;
 import com.gwtext.client.widgets.Panel;
 import com.gwtext.client.widgets.Viewport;
 import com.gwtext.client.widgets.event.ButtonListenerAdapter;
@@ -96,9 +101,31 @@ public class Pruebas implements EntryPoint {
                 if (workflow == null) {
                     workflow = new Workflow(miPanel.getId());
                 }
+
+                final MenuBuilder menuBuilder = new MenuBuilder() {
+                    public Menu buildMenu() {
+                        Menu menu = new Menu();
+                        
+                        MenuItemCallback cbk = new MenuItemCallback(){
+                            public void onSelect(MenuItem menuItem) {
+                                MessageBox.alert("Se selecciono la opcion "+ menuItem.getLabel());
+                            }
+                        };
+
+                        MenuItem item1 = new MenuItem("Opcion 1", null, cbk);
+                        MenuItem item2 = new MenuItem("Opcion 2", null, cbk);
+                        
+                        menu.appendMenuItem(item1);
+                        menu.appendMenuItem(item2);
+                        
+                        return menu;
+                    }
+                };
+                
                 ImageFigure figure = new ImageFigure("Start.png");
                 figure.setDimension(50, 50);
                 figure.setWorkflow(workflow);
+                figure.setMenuBuilder(menuBuilder);
 
                 OutputPort outputPort = new OutputPort();
                 outputPort.setBackgroundColor(new Color(245, 115, 115));
@@ -114,7 +141,12 @@ public class Pruebas implements EntryPoint {
                 outputPort.addListener(new PortListener() {
                     public void onDrop(Port source, Port target) {
                         CommandConnect command = new CommandConnect(workflow, source, target);
-                        command.setConnection(new Connection());
+                        
+                        Connection connection = new Connection();
+                        connection.setMenuBuilder(menuBuilder);
+                        connection.setLineWidth(5);
+                        
+                        command.setConnection(connection);
                         
                         workflow.getCommandStack().execute(command);
                     }
