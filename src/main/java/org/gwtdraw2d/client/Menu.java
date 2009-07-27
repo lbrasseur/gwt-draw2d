@@ -11,7 +11,18 @@ public class Menu extends Figure {
     /**
      * {@inheritDoc}
      */
-    protected native JavaScriptObject create() /*-{
+    protected final native JavaScriptObject create() /*-{
         return new $wnd.draw2d.Menu();
+    }-*/;
+
+    /**
+     * Appends a menu item to this menu and enforce a repaint of the menu.
+     * @param item The item
+     */
+    public final native void appendMenuItem(final MenuItem item) /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Menu::getJsObj()();
+        var jsItem = item.@org.gwtdraw2d.client.MenuItem::getJsObj()();
+
+        jsThis.appendMenuItem(jsItem);
     }-*/;
 }
