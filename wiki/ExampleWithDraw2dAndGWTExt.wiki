@@ -48,8 +48,6 @@ Create the following files:
 {{{
 package com.pru.client;
 
-import java.util.Date;
-
 import org.gwtdraw2d.client.Annotation;
 import org.gwtdraw2d.client.Color;
 import org.gwtdraw2d.client.CommandConnect;
@@ -68,6 +66,11 @@ import org.gwtdraw2d.client.Workflow;
 import com.google.gwt.core.client.EntryPoint;
 import com.gwtext.client.core.EventObject;
 import com.gwtext.client.core.RegionPosition;
+import com.gwtext.client.dd.DragData;
+import com.gwtext.client.dd.DragSource;
+import com.gwtext.client.dd.DragSourceConfig;
+import com.gwtext.client.dd.DropTarget;
+import com.gwtext.client.dd.DropTargetConfig;
 import com.gwtext.client.widgets.Button;
 import com.gwtext.client.widgets.MessageBox;
 import com.gwtext.client.widgets.Panel;
@@ -89,90 +92,27 @@ public class Pruebas implements EntryPoint {
         leftPanel.setWidth(200);
 
         final Panel centerPanel = new Panel("principal");
+        centerPanel.setWidth(800);
+        centerPanel.setHeight(600);
+        
         final Panel miPanel = new Panel();
+        miPanel.setWidth(800);
+        miPanel.setHeight(600);
 
         centerPanel.add(miPanel);
         
         leftPanel.setLayout(new VerticalLayout(10));
-
-        leftPanel.add(new Button("Dale", new ButtonListenerAdapter() {
-
+        
+        Button dale = new Button("Dale", new ButtonListenerAdapter() {
             public void onClick(Button button, EventObject e) {
-                if (workflow == null) {
-                    workflow = new Workflow(miPanel.getId());
-                }
-
-                final MenuBuilder menuBuilder = new MenuBuilder() {
-                    public Menu buildMenu() {
-                        Menu menu = new Menu();
-                        
-                        MenuItemCallback cbk = new MenuItemCallback(){
-                            public void onSelect(MenuItem menuItem) {
-                                MessageBox.alert("Se selecciono la opcion "+ menuItem.getLabel());
-                            }
-                        };
-
-                        MenuItem item1 = new MenuItem("Opcion 1", null, cbk);
-                        MenuItem item2 = new MenuItem("Opcion 2", null, cbk);
-                        
-                        menu.appendMenuItem(item1);
-                        menu.appendMenuItem(item2);
-                        
-                        return menu;
-                    }
-                };
-                
-                ImageFigure figure = new ImageFigure("Start.png");
-                figure.setDimension(50, 50);
-                figure.setWorkflow(workflow);
-                figure.setMenuBuilder(menuBuilder);
-
-                OutputPort outputPort = new OutputPort();
-                outputPort.setBackgroundColor(new Color(245, 115, 115));
-                figure.addPort(outputPort, 50, 25);
-                
-                /*
-                 * By default, a connection is created, so, listeners must be
-                 * removed. Test uncommenting the following line and the next
-                 * listener (the effect should be the same)
-                 */
-                outputPort.removeListeners();
-                
-                outputPort.addListener(new PortListener() {
-                    public void onDrop(Port source, Port target) {
-                        CommandConnect command = new CommandConnect(workflow, source, target);
-                        
-                        Connection connection = new Connection();
-                        connection.setMenuBuilder(menuBuilder);
-                        connection.setLineWidth(5);
-                        
-                        command.setConnection(connection);
-                        
-                        workflow.getCommandStack().execute(command);
-                    }
-                });
-
-                outputPort.addListener(new PortListener() {
-                    public void onDrop(Port source, Port target) {
-                        centerPanel.setTitle(""+ new Date());
-                    }
-                });
-                
-                InputPort inputPort = new InputPort();
-                inputPort.setBackgroundColor(new Color(115,115,245));
-                figure.addPort(inputPort, 0, 25);
-                
-
-                workflow.addFigure(figure, 200, 100);
+                createStartImage(200, 100);
             }
-        }));
-
+        });
+        
+        leftPanel.add(dale);
         
         leftPanel.add(new Button("Imagen resizable", new ButtonListenerAdapter() {
             public void onClick(Button button, EventObject e) {
-                if (workflow == null) {
-                    workflow = new Workflow(miPanel.getId());
-                }
                 ImageFigure figure = new ImageFigure("Image.gif");
                 figure.setDimension(150, 300);
                 workflow.addFigure(figure, 10, 10);
@@ -181,9 +121,6 @@ public class Pruebas implements EntryPoint {
 
         leftPanel.add(new Button("Anotacion", new ButtonListenerAdapter() {
             public void onClick(Button button, EventObject e) {
-                if (workflow == null) {
-                    workflow = new Workflow(miPanel.getId());
-                }
                 Annotation annotation = new Annotation("Hola, esto es un texto en una anotiacion");
                 annotation.setDimension(100, 50);
                 workflow.addFigure(annotation, 20, 20);
@@ -194,7 +131,90 @@ public class Pruebas implements EntryPoint {
         borderPanel.add(centerPanel,
                 new BorderLayoutData(RegionPosition.CENTER));
 
+        workflow = new Workflow(miPanel.getId());
+
+        DragSourceConfig dsc = new DragSourceConfig();
+        dsc.setdDdGroup("wfx");
+        new DragSource(dale, dsc);
+
+        DropTargetConfig dtc = new DropTargetConfig();
+        dtc.setdDdGroup("wfx");
+        new DropTarget(miPanel, dtc) {
+            public boolean notifyDrop(DragSource source, EventObject e,
+                    DragData data) {
+                createStartImage(e.getXY()[0] - workflow.getAbsoluteX(), e
+                        .getXY()[1]
+                        - workflow.getAbsoluteY());
+                return true;
+            }
+            public String notifyOver(DragSource source, EventObject e,
+                    DragData data) {
+                return "x-dd-drop-ok";
+            }
+        };
+        
+        
+        
         new Viewport(borderPanel);
+    }
+    
+    private void createStartImage(int x, int y) {
+        final MenuBuilder menuBuilder = new MenuBuilder() {
+            public Menu buildMenu() {
+                Menu menu = new Menu();
+                
+                MenuItemCallback cbk = new MenuItemCallback(){
+                    public void onSelect(MenuItem menuItem) {
+                        MessageBox.alert("Se selecciono la opcion "+ menuItem.getLabel());
+                    }
+                };
+
+                MenuItem item1 = new MenuItem("Opcion 1", null, cbk);
+                MenuItem item2 = new MenuItem("Opcion 2", null, cbk);
+                
+                menu.appendMenuItem(item1);
+                menu.appendMenuItem(item2);
+                
+                return menu;
+            }
+        };
+        
+        ImageFigure figure = new ImageFigure("Start.png");
+        figure.setDimension(50, 50);
+        figure.setWorkflow(workflow);
+        figure.setMenuBuilder(menuBuilder);
+
+        OutputPort outputPort = new OutputPort();
+        outputPort.setBackgroundColor(new Color(245, 115, 115));
+        figure.addPort(outputPort, 50, 25);
+        
+        /*
+         * By default, a connection is created, so, listeners must be
+         * removed. Test uncommenting the following line and the next
+         * listener (the effect should be the same)
+         */
+        outputPort.removeListeners();
+        
+        outputPort.addListener(new PortListener() {
+            public void onDrop(Port source, Port target) {
+                CommandConnect command = new CommandConnect(workflow, source, target);
+                
+                Connection connection = new Connection();
+                connection.setMenuBuilder(menuBuilder);
+                connection.setLineWidth(5);
+                
+                command.setConnection(connection);
+                
+                workflow.getCommandStack().execute(command);
+            }
+        });
+
+        InputPort inputPort = new InputPort();
+        inputPort.setBackgroundColor(new Color(115,115,245));
+        figure.addPort(inputPort, 0, 25);
+        
+
+        workflow.addFigure(figure, x, y);
     }
 
 }
