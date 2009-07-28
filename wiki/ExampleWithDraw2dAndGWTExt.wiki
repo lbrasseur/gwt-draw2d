@@ -4,6 +4,8 @@
 
 This page shows a simple test using Draw2d and GWT-Ext. You must provide images, such as Start.png which is used in com/pru/client/Pruebas.java. Also, copy the Ext-js library in public/js and Draw2d files in public/draw2d.
 
+Link to built version: [http://gwt-draw2d.googlecode.com/files/prueba_draw2d.zip]
+
 Create the following files:
 
 
