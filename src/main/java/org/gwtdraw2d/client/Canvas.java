@@ -14,4 +14,20 @@ public class Canvas extends Component {
     protected native JavaScriptObject create() /*-{
         return new $wnd.draw2d.Canvas();
     }-*/;
+
+    /**
+     * @return The X coordinate in relation to the canvas
+     */
+    public final native int getAbsoluteX() /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Canvas::getJsObj()();
+        return jsThis.getAbsoluteX();
+    }-*/;
+
+    /**
+     * @return The Y coordinate in relation to the canvas
+     */
+    public final native int getAbsoluteY() /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Canvas::getJsObj()();
+        return jsThis.getAbsoluteY();
+    }-*/;
 }

@@ -6,7 +6,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  * Wrapper for draw2d.Workflow.
  * @author lautaro.brasseur
  */
-public class Workflow extends Component {
+public class Workflow extends Canvas {
     /**
      * The id for the Workflow container.
      */
