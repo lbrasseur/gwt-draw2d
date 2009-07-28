@@ -30,14 +30,14 @@ public abstract class Component {
     /**
      * Default constructor.
      */
-    public Component() {
+    protected Component() {
     }
 
     /**
      * Constructor passing JavaScriptObject.
      * @param aJsObj the JavaScriptObject
      */
-    public Component(final JavaScriptObject aJsObj) {
+    protected Component(final JavaScriptObject aJsObj) {
         this.jsObj = aJsObj;
         initComponent();
     }
