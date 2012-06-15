@@ -13,12 +13,17 @@ public class Annotation extends Figure {
      */
     private String msg;
 
+    public Annotation(final JavaScriptObject aJsObj) {
+		super(aJsObj);
+		// TODO Auto-generated constructor stub
+	}
+    
     /**
      * Constructor.
      * @param aMsg The message
      */
     public Annotation(final String aMsg) {
-        this.msg = aMsg;
+    	this.msg = aMsg;       
     }
 
     /**

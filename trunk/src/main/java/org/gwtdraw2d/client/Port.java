@@ -13,8 +13,11 @@ public class Port extends Rectangle {
     protected native JavaScriptObject create()/*-{
         return new $wnd.draw2d.Port();
     }-*/;
-
-    /**
+    
+    public Port(final JavaScriptObject aJsObj) {
+        super(aJsObj);
+    }
+        /**
      * Sets the background color.
      * @param color The color to be set
      */
@@ -24,6 +27,7 @@ public class Port extends Rectangle {
 
         jsThis.setBackgroundColor(jsColor);
     }-*/;
+    
 
 
     /**

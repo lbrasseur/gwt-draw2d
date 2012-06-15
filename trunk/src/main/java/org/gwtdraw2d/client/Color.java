@@ -44,4 +44,32 @@ public class Color extends Component {
         var blue = this.@org.gwtdraw2d.client.Color::blue;
         return new $wnd.draw2d.Color(red, green, blue);
     }-*/;
+    
+    /**
+     * Returns blue int value
+     * @return
+     */
+    public final native int getBlue() /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Color::getJsObj()();        
+        return jsThis.getBlue();
+    }-*/;
+    
+    /**
+     * Returns red int value
+     * @return
+     */
+    public final native int getGreen() /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Color::getJsObj()();        
+        return jsThis.getGreen();
+    }-*/;
+    
+    /**
+     * Returns red int value
+     * @return
+     */
+    public final native int getRed() /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Color::getJsObj()();        
+        return jsThis.getRed();
+    }-*/;
+    
 }

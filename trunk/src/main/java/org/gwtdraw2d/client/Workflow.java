@@ -43,6 +43,20 @@ public class Workflow extends Canvas {
         jsThis.addFigure(jsFigure, x, y);
     }-*/;
 
+    
+    /**
+     * Adds a figure.
+     * @param figure The figure
+     * @param x The X coordinate
+     * @param y The Y coordinate
+     */
+    public final native void addFigure(final Line line) /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Node::getJsObj()();
+        var jsLine = line.@org.gwtdraw2d.client.Line::getJsObj()();
+        jsLine.setWorkflow(jsThis.workflow);
+        jsThis.addFigure(jsLine);
+    }-*/;
+    
     /**
      * Returns the command stack.
      * @return The CommandStack

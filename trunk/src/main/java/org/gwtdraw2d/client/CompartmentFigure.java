@@ -8,7 +8,12 @@ import com.google.gwt.core.client.JavaScriptObject;
  * TODO: Start coding the wrapper!. 
  */
 public class CompartmentFigure extends Node {
-    /**
+    public CompartmentFigure(JavaScriptObject aJsObj) {
+		super(aJsObj);
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * {@inheritDoc}
      */
     protected native JavaScriptObject create() /*-{

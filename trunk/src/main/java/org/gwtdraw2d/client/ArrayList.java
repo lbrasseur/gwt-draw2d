@@ -8,7 +8,15 @@ import com.google.gwt.core.client.JavaScriptObject;
  * TODO: Start coding the wrapper!. 
  */
 public class ArrayList extends Component {
-    /**
+    public ArrayList(){
+    	this.create();
+    }
+    
+    public ArrayList(final JavaScriptObject aJsObj) {
+        super(aJsObj);
+    }
+    
+	/**
      * {@inheritDoc}
      */
     protected native JavaScriptObject create() /*-{
