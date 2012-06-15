@@ -14,4 +14,25 @@ public class Border extends Component {
     protected native JavaScriptObject create() /*-{
         return new $wnd.draw2d.Border();
     }-*/;
+    
+    /**
+     * Sets the background color.
+     * @param color The color to be set
+     */
+    public native void setColor(final Color color) /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+        var jsColor = color.@org.gwtdraw2d.client.Color::getJsObj()();
+
+        jsThis.setColor(jsColor);
+    }-*/;
+
+    
+    /**
+     * Gets the background color.
+     */
+    public native Color getColor(final Color color) /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+
+        return jsThis.getColor();
+    }-*/;
 }

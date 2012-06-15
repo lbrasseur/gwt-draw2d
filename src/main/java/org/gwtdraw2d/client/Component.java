@@ -1,12 +1,17 @@
 package org.gwtdraw2d.client;
 
 import com.google.gwt.core.client.JavaScriptObject;
+import com.google.gwt.event.dom.client.DoubleClickEvent;
+import com.google.gwt.event.dom.client.DoubleClickHandler;
+import com.google.gwt.event.dom.client.HasDoubleClickHandlers;
+import com.google.gwt.event.shared.HandlerRegistration;
+import com.google.gwt.user.client.ui.Widget;
 
 /**
  * Base class for all Draw2d wrapper components.
  * @author lautaro.brasseur
  */
-public abstract class Component {
+public abstract class Component extends Widget implements HasDoubleClickHandlers  {
     /**
      * The JavaScriptObject to be wrapped.
      */
@@ -79,7 +84,16 @@ public abstract class Component {
             final String jsObjId) /*-{
         return $wnd.gwtdraw2d.idMap[jsObjId];
     }-*/;
-
+    
+    /**
+     * get the id of the component
+     * @return
+     */
+	public final native String getId()/*-{
+	var jsThis = this.@org.gwtdraw2d.client.RoundCornerFigure::getJsObj()();
+	return jsThis.id;
+	}-*/;
+    
     /**
      * Sets the menu builder.
      * @param target The target JavaScriptObject
@@ -92,5 +106,25 @@ public abstract class Component {
                var jsMenu = menu.@org.gwtdraw2d.client.Menu::getJsObj()();
                return jsMenu;
            }
-       }-*/;
+       }-*/;      
+    
+	public static native void exportDoubleClickMethod() /*-{
+	   $wnd.fireDoubleClick = function(id) {
+	        	@org.gwtdraw2d.client.Component::fireDoubleClick(Ljava/lang/String;)(id);
+	    	}   
+	}-*/;
+    
+    public static void fireDoubleClick(String id) {
+    	Component component = (Component)Window.getComponent(id);
+    	component.fireEvent(new DoubleClickEvent(){ } );
+	}
+    
+	@Override
+	public HandlerRegistration addDoubleClickHandler(DoubleClickHandler handler) {
+		this.exportDoubleClickMethod();
+		return addDomHandler(handler, DoubleClickEvent.getType());
+	}
+    
+    
+    
 }

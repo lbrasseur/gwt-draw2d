@@ -8,7 +8,12 @@ import com.google.gwt.core.client.JavaScriptObject;
  * TODO: Start coding the wrapper!. 
  */
 public class AnnotationDialog extends Dialog {
-    /**
+    public AnnotationDialog(JavaScriptObject aJsObj) {
+		super(aJsObj);
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * {@inheritDoc}
      */
     protected native JavaScriptObject create() /*-{

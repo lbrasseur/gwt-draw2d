@@ -7,7 +7,12 @@ import com.google.gwt.core.client.JavaScriptObject;
  * @author lautaro.brasseur
  */
 public class InputPort extends Port {
-    /**
+    public InputPort(JavaScriptObject aJsObj) {
+		super(aJsObj);
+		// TODO Auto-generated constructor stub
+	}
+
+	/**
      * {@inheritDoc}
      */
     protected final native JavaScriptObject create()/*-{
