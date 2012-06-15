@@ -86,15 +86,6 @@ public abstract class Component extends Widget implements HasDoubleClickHandlers
     }-*/;
     
     /**
-     * get the id of the component
-     * @return
-     */
-	public final native String getId()/*-{
-	var jsThis = this.@org.gwtdraw2d.client.RoundCornerFigure::getJsObj()();
-	return jsThis.id;
-	}-*/;
-    
-    /**
      * Sets the menu builder.
      * @param target The target JavaScriptObject
      * @param menuBuilder The menu builder

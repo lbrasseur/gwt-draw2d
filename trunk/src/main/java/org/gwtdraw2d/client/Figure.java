@@ -88,6 +88,43 @@ public class Figure extends Component {
 		jsThis.onRemove();
 	}-*/;
 
+	public final native int getX() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+
+		return jsThis.getX();
+	}-*/;
+
+	public final native int getY() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+
+		return jsThis.getY();
+	}-*/;
+
+	public final native int getWidth() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+
+		return jsThis.getWidth();
+	}-*/;
+
+	public final native int getHeight() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+
+		return jsThis.getHeight();
+	}-*/;
+
+	public final native int getZOrder() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+
+		return jsThis.getZOrder();
+	}-*/;
+	
+	public final native String getId() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+
+		return jsThis.getId();
+	}-*/;
+	
+
 	/**
 	 * Sets the menu builder.
 	 * 
