@@ -8,6 +8,9 @@ import com.google.gwt.core.client.JavaScriptObject;
  * TODO: Start coding the wrapper!. 
  */
 public class Rectangle extends Figure {
+	public Rectangle() {
+		super();
+	}
     /**
      * {@inheritDoc}
      */

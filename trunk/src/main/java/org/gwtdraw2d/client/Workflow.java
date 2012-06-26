@@ -27,7 +27,17 @@ public class Workflow extends Canvas {
         var containerId = this.@org.gwtdraw2d.client.Workflow::containerId;
         return new $wnd.draw2d.Workflow(containerId);
     }-*/;
-
+    
+    protected final native JavaScriptObject clear() /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Node::getJsObj()();
+        jsThis.clear();
+    }-*/;
+    
+    protected final native Menu getContextMenu() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Node::getJsObj()();
+		return jsThis.getContextMenu();
+	}-*/;
+    
     /**
      * Adds a figure.
      * @param figure The figure
@@ -58,14 +68,45 @@ public class Workflow extends Canvas {
     }-*/;
     
     /**
+     * Removes a figure from the canvas
+     * @param figure
+     */
+    public final native void removeFigure(final Figure figure) /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Node::getJsObj()();
+        var jsFigure = figure.@org.gwtdraw2d.client.Figure::getJsObj()();
+
+        jsFigure.setWorkflow(jsThis.workflow);
+        jsThis.removeFigure(jsFigure);
+    }-*/;
+    
+    /**
      * Returns the command stack.
      * @return The CommandStack
      */
     public final native CommandStack getCommandStack() /*-{
         var jsThis = this.@org.gwtdraw2d.client.Workflow::getJsObj()();
-
         var commandStack = @org.gwtdraw2d.client.CommandStack::new(Lcom/google/gwt/core/client/JavaScriptObject;)(jsThis.getCommandStack());
-
         return commandStack;
     }-*/;
+    
+    public final native void showTooltip(final Figure figure, final Boolean autoHide) /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Node::getJsObj()();
+        var jsFigure = figure.@org.gwtdraw2d.client.Figure::getJsObj()();
+        jsFigure.setWorkflow(jsThis.workflow);
+    	jsThis.showTooltip(jsFigure, autoHide);
+	}-*/;
+    
+    public final native Boolean getFloatEnabled() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Node::getJsObj()();
+		return jsThis.getFloatEnabled();
+	}-*/;
+    
+    public final native Boolean setFloatEnabled(final Boolean enableFloat) /*-{
+	var jsThis = this.@org.gwtdraw2d.client.Node::getJsObj()();
+	return jsThis.setFloatEnabled(enableFloat);
+}-*/;
+    
+    
+    
+    
 }

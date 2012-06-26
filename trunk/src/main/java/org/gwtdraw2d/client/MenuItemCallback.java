@@ -9,5 +9,8 @@ public interface MenuItemCallback {
      * Callback method to be called when an item is selected.
      * @param menuItem The menu item
      */
-    void onSelect(MenuItem menuItem);
+    //void onSelect(MenuItem menuItem);
+
+    void onSelect(MenuItem menuItem, Figure target);
+    
 }

@@ -8,6 +8,9 @@ import com.google.gwt.core.client.JavaScriptObject;
  * TODO: Start coding the wrapper!. 
  */
 public class Oval extends VectorFigure {
+	public Oval() {
+	super();
+}
     public Oval(JavaScriptObject aJsObj) {
 		super(aJsObj);
 		// TODO Auto-generated constructor stub
