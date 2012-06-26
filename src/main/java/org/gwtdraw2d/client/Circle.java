@@ -7,7 +7,10 @@ import com.google.gwt.core.client.JavaScriptObject;
  * @author lautaro.brasseur
  * TODO: Start coding the wrapper!. 
  */
-public class Circle extends Oval {
+public class Circle extends Oval {	
+	public Circle() {
+	super();
+}
     public Circle(JavaScriptObject aJsObj) {
 		super(aJsObj);
 		// TODO Auto-generated constructor stub

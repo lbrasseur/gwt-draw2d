@@ -55,7 +55,12 @@ public class Figure extends Component {
 
 		jsThis.setDimension(width, height);
 	}-*/;
-
+	public final native void setToolTip(final String tipText) /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+		jsThis.setToolTip(tipText);
+	}-*/;
+	
+	
 	public final native void onDoubleClick() /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
 		jsThis.onDoubleClick();
@@ -86,6 +91,18 @@ public class Figure extends Component {
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
 
 		jsThis.onRemove();
+	}-*/;
+
+	public final native int getAbsoluteX() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+
+		return jsThis.getAbsoluteX();
+	}-*/;
+
+	public final native int getAbsoluteY() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+
+		return jsThis.getAbsoluteY();
 	}-*/;
 
 	public final native int getX() /*-{

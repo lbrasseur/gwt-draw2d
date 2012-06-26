@@ -19,7 +19,7 @@ public class MenuItem extends Component {
      * The action callback.
      */
     private MenuItemCallback action;
-
+    private Figure target;
     /**
      * Constructor.
      * @param aLabel The label
@@ -32,7 +32,19 @@ public class MenuItem extends Component {
         this.iconUrl = anIconUrl;
         this.action = anAction;
     }
-
+    /**
+     * Constructor.
+     * @param aLabel The label
+     * @param anIconUrl The URL for the icon
+     * @param anAction The action callback
+     */
+    public MenuItem(final String aLabel, final String anIconUrl,
+            final MenuItemCallback anAction, final Figure anTarget) {
+        this.label = aLabel;
+        this.iconUrl = anIconUrl;
+        this.action = anAction;
+        this.target = anTarget;
+    }
     /**
      * {@inheritDoc}
      */
@@ -40,13 +52,14 @@ public class MenuItem extends Component {
         var label = this.@org.gwtdraw2d.client.MenuItem::label;
         var iconUrl = this.@org.gwtdraw2d.client.MenuItem::iconUrl;
         var action = this.@org.gwtdraw2d.client.MenuItem::action;
-
+		var target = this.@org.gwtdraw2d.client.MenuItem::target;
+		
         var actionFunc = null;
 
         if (action) {
-            var localThis = this;
+            var localThis = this;            
             actionFunc = function() {
-                action.@org.gwtdraw2d.client.MenuItemCallback::onSelect(Lorg/gwtdraw2d/client/MenuItem;)(localThis);
+                action.@org.gwtdraw2d.client.MenuItemCallback::onSelect(Lorg/gwtdraw2d/client/MenuItem;Lorg/gwtdraw2d/client/Figure;)(localThis, target);
             }
         }
 
