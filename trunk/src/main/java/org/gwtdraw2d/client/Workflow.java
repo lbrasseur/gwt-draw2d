@@ -78,7 +78,16 @@ public class Workflow extends Canvas {
         jsFigure.setWorkflow(jsThis.workflow);
         jsThis.removeFigure(jsFigure);
     }-*/;
-    
+    /**
+     * Removes a figure from the canvas
+     * @param figure
+     */
+    public final native void removeFigure(final Line line) /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Node::getJsObj()();
+        var jsLine = line.@org.gwtdraw2d.client.Line::getJsObj()();
+        jsLine.setWorkflow(jsThis.workflow);
+        jsThis.removeFigure(jsLine);
+    }-*/; 
     /**
      * Returns the command stack.
      * @return The CommandStack
