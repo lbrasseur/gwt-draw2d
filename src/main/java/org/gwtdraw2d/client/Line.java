@@ -8,6 +8,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  * TODO: Start coding the wrapper!. 
  */
 public class Line extends Component {
+	
     /**
      * {@inheritDoc}
      */
