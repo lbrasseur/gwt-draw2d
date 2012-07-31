@@ -34,4 +34,11 @@ public class Line extends Component {
     public final void setMenuBuilder(final MenuBuilder menuBuilder) {
         setMenuBuilder(getJsObj(), menuBuilder);
     }
+    
+	public final native String getId() /*-{
+	var jsThis = this.@org.gwtdraw2d.client.Line::getJsObj()();
+
+	return jsThis.getId();
+	}-*/;
+	
 }
