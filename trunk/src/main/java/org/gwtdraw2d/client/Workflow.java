@@ -28,7 +28,7 @@ public class Workflow extends Canvas {
         return new $wnd.draw2d.Workflow(containerId);
     }-*/;
     
-    protected final native JavaScriptObject clear() /*-{
+    public final native JavaScriptObject clear() /*-{
         var jsThis = this.@org.gwtdraw2d.client.Node::getJsObj()();
         jsThis.clear();
     }-*/;

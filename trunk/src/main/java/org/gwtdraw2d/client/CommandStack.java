@@ -22,7 +22,7 @@ public class CommandStack extends Command {
     protected native JavaScriptObject create() /*-{
         return new $wnd.draw2d.CommandStack();
     }-*/;
-
+    
     /**
      * Executes the specified Command if possible. Prior to executing the
      * command, a draw2d.CommandStackEvent for PRE_EXECUTE will be fired to
@@ -36,5 +36,13 @@ public class CommandStack extends Command {
 
         jsThis.execute(jsCommand);
     }-*/;
-
+    
+    public final native void undo() /*-{
+    var jsThis = this.@org.gwtdraw2d.client.CommandStack::getJsObj()();
+    jsThis.undo();
+	}-*/;
+    public final native void redo() /*-{
+    var jsThis = this.@org.gwtdraw2d.client.CommandStack::getJsObj()();
+    jsThis.redo();
+	}-*/;
 }
