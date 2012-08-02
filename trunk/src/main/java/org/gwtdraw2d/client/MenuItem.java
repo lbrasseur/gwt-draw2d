@@ -74,5 +74,10 @@ public class MenuItem extends Component {
         var jsThis = this.@org.gwtdraw2d.client.MenuItem::getJsObj()();
         return jsThis.getLabel();
     }-*/;
+    
+    public final native boolean isEnabled() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.MenuItem::getJsObj()();
+		return jsThis.isEnabled();
+	}-*/;
 
 }
