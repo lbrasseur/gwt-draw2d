@@ -33,4 +33,26 @@ public class Annotation extends Figure {
         var msg = this.@org.gwtdraw2d.client.Annotation::msg;
         return new $wnd.draw2d.Annotation(msg);
     }-*/;
+    
+    public final native String getText() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Annotation::getJsObj()();
+		return jsThis.getText();
+	}-*/;
+    
+    public native void setFontSize(final int size) /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Annotation::getJsObj()();	
+		jsThis.setFontSize(size);
+	}-*/;
+    
+
+    public native void setStyledText(final String textStyle) /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Annotation::getJsObj()();	
+		jsThis.setStyledText(textStyle);
+	}-*/;
+    
+	public final native void setText(final String text) /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Annotation::getJsObj()();
+		jsThis.setText(text);
+	}-*/;
+	
 }
