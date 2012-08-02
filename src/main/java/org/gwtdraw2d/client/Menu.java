@@ -35,4 +35,10 @@ public class Menu extends Figure {
 
         jsThis.appendMenuItem(jsItem);
     }-*/;
+    
+    public final native void createList() /*-{
+	    var jsThis = this.@org.gwtdraw2d.client.Menu::getJsObj()();	
+	    jsThis.createList();
+	}-*/;
+    
 }

@@ -127,6 +127,11 @@ public class Canvas extends Component {
     return jsThis.getEnableSmoothFigureHandling();
 	}-*/;
     
+    public final native void setEnableSmoothFigureHandling( final boolean flag) /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Canvas::getJsObj()();    
+		jsThis.setEnableSmoothFigureHandling(flag);
+	}-*/;
+    
     
     
     
