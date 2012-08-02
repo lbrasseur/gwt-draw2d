@@ -8,6 +8,10 @@ import com.google.gwt.core.client.JavaScriptObject;
  * TODO: Start coding the wrapper!. 
  */
 public class Dialog extends Window {
+	public Dialog() {
+		super();
+	}
+	
     public Dialog(JavaScriptObject aJsObj) {
 		super(aJsObj);
 		// TODO Auto-generated constructor stub

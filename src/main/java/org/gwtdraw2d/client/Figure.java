@@ -105,6 +105,11 @@ public class Figure extends Component {
 		return jsThis.getAbsoluteY();
 	}-*/;
 
+    public final native void setZOrder(final int index) /*-{
+    var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+        
+    jsThis.setZOrder(index);
+}-*/;
 	public final native int getX() /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
 
