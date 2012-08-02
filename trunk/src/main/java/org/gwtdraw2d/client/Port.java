@@ -57,4 +57,59 @@ public class Port extends Rectangle {
             portListener.@org.gwtdraw2d.client.PortListener::onDrop(Lorg/gwtdraw2d/client/Port;Lorg/gwtdraw2d/client/Port;)(thisPort,portComponent);
         }
     }-*/;
+    public final native String getName() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();
+		return jsThis.getName();
+	}-*/;
+    public final native ArrayList getConnections() /*-{
+	    var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();        
+	    var returnChildren = @org.gwtdraw2d.client.ArrayList::new(Lcom/google/gwt/core/client/JavaScriptObject;)(jsThis.getConnections());
+	    return returnChildren;
+	}-*/;
+    
+	public final native int getCoronaWidth() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();	
+		return jsThis.getCoronaWidth();
+	}-*/;
+	
+	public final native int getLineWidth() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();	
+		return jsThis.getLineWidth();
+	}-*/;	
+	
+	public final native void setName(final String name) /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();
+		jsThis.setName(name);
+	}-*/;
+
+
+    public final native void setPosition(final int x, final int y) /*-{
+	    var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();
+	    jsThis.setPosition( x, y);
+	}-*/;
+    public final native boolean isOver(final int x, final int y)/*-{
+    var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();
+    return jsThis.isOver(x,y);
+	}-*/;
+    
+    public final native Dimension getAbsoluteBounds()/*-{
+    var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();
+    return jsThis.getAbsoluteBounds();
+	}-*/;
+    
+    public final native Node getParent()/*-{
+    var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();
+    return jsThis.getParent();
+	}-*/;
+    
+    
+    public final native void setLineWidth(final int width) /*-{
+	    var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();
+	        
+	    jsThis.setLineWidth(width);
+	}-*/;
+    public final native void setHideIfConnected( final Boolean flag) /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();    
+		jsThis.setHideIfConnected(flag);
+	}-*/;
 }

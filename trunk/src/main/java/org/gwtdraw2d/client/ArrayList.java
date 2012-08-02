@@ -22,4 +22,29 @@ public class ArrayList extends Component {
     protected native JavaScriptObject create() /*-{
         return new $wnd.draw2d.ArrayList();
     }-*/;
+    
+	public final native int getSize() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.ArrayList::getJsObj()();
+		return jsThis.getSize();
+	}-*/;
+	
+	public final native void resize() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.ArrayList::getJsObj()();
+		jsThis.resize();
+	}-*/;
+
+	public final native void reverse() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.ArrayList::getJsObj()();
+		jsThis.reverse();
+	}-*/;
+	
+	public final native void trimToSize() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.ArrayList::getJsObj()();
+		jsThis.trimToSize();
+	}-*/;
+
+	public final native void removeAllElements() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.ArrayList::getJsObj()();
+		jsThis.removeAllElements();
+	}-*/;
 }

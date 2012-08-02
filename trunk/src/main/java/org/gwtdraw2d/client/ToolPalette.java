@@ -18,4 +18,9 @@ public class ToolPalette extends Window {
     protected native JavaScriptObject create()/*-{
         return new $wnd.draw2d.ToolPalette();
     }-*/;
+    
+
+    public ToolPalette(){
+    	this.create();
+    }
 }
