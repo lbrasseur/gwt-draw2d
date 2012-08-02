@@ -22,10 +22,6 @@ public class Circle extends Oval {
         return new $wnd.draw2d.Circle();
     }-*/;
 
-    public final native Boolean isStrechable() /*-{
-		var jsThis = this.@org.gwtdraw2d.client.Circle::getJsObj()();
-		return jsThis.isStrechable();
-	}-*/;
     
 
 }

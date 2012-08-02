@@ -52,11 +52,6 @@ public class CompartmentFigure extends Node {
     jsThis.removeChild(jsFigure);
 }-*/;
     
-    public final native void setPosition(final int x, final int y) /*-{
-    var jsThis = this.@org.gwtdraw2d.client.CompartmentFigure::getJsObj()();
-        
-    jsThis.setPosition(x,y);
-}-*/;
     public final native ArrayList getChildren() /*-{
     var jsThis = this.@org.gwtdraw2d.client.CompartmentFigure::getJsObj()();        
     var returnChildren = @org.gwtdraw2d.client.ArrayList::new(Lcom/google/gwt/core/client/JavaScriptObject;)(jsThis.getChildren());

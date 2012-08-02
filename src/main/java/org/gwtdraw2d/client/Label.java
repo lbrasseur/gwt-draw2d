@@ -59,12 +59,8 @@ public class Label extends Figure {
 		var jsThis = this.@org.gwtdraw2d.client.Label::getJsObj()();	
 		jsThis.setAlign(align);
 	}-*/; 
-    public final native void setWordwrap( final Boolean flag) /*-{
+    public final native void setWordwrap( final boolean flag) /*-{
     	var jsThis = this.@org.gwtdraw2d.client.Label::getJsObj()();    
 		jsThis.setWordwrap(flag);
-	}-*/;
-    public final native Boolean isResizeable() /*-{
-		var jsThis = this.@org.gwtdraw2d.client.Label::getJsObj()();
-		return jsThis.isResizeable();
 	}-*/;
 }

@@ -83,14 +83,8 @@ public class Port extends Rectangle {
 	}-*/;
 
 
-    public final native void setPosition(final int x, final int y) /*-{
-	    var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();
-	    jsThis.setPosition( x, y);
-	}-*/;
-    public final native boolean isOver(final int x, final int y)/*-{
-    var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();
-    return jsThis.isOver(x,y);
-	}-*/;
+
+
     
     public final native Dimension getAbsoluteBounds()/*-{
     var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();
