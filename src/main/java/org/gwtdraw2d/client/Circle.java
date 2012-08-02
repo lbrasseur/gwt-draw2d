@@ -9,8 +9,8 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Circle extends Oval {	
 	public Circle() {
-	super();
-}
+		this.create();
+	}
     public Circle(JavaScriptObject aJsObj) {
 		super(aJsObj);
 		// TODO Auto-generated constructor stub

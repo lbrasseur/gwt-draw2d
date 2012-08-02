@@ -8,10 +8,12 @@ import com.google.gwt.core.client.JavaScriptObject;
  * TODO: Start coding the wrapper!. 
  */
 public class Line extends Component {
-	  
-		public Line(final JavaScriptObject aJsObj) {
-		    super(aJsObj);
-		}
+	public Line() {
+		this.create();
+	}	
+	public Line(final JavaScriptObject aJsObj) {
+	    super(aJsObj);
+	}
     /**
      * {@inheritDoc}
      */

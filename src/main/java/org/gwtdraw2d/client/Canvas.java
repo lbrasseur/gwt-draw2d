@@ -9,7 +9,7 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Canvas extends Component {	
 	public Canvas() {
-		this.create();
+		super();
 	}    
 	public Canvas(final JavaScriptObject aJsObj) {
 	    super(aJsObj);
