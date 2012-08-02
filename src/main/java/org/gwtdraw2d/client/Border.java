@@ -7,7 +7,10 @@ import com.google.gwt.core.client.JavaScriptObject;
  * @author lautaro.brasseur
  * TODO: Start coding the wrapper!. 
  */
-public class Border extends Component {
+public class Border extends Component {		
+	public Border(final JavaScriptObject aJsObj) {
+	    super(aJsObj);
+	}
     /**
      * {@inheritDoc}
      */

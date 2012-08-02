@@ -13,5 +13,10 @@ public class ConnectionDecorator extends Component {
      */
     protected native JavaScriptObject create() /*-{
         return new $wnd.draw2d.ConnectionDecorator();
-    }-*/;
+    }-*/;    
+    
+    public ConnectionDecorator(JavaScriptObject aJsObj) {
+		super(aJsObj);
+		// TODO Auto-generated constructor stub
+	}
 }

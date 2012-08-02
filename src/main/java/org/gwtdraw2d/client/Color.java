@@ -6,7 +6,10 @@ import com.google.gwt.core.client.JavaScriptObject;
  * Wrapper for draw2d.Color.
  * @author lautaro.brasseur
  */
-public class Color extends Component {
+public class Color extends Component {		
+	public Color(final JavaScriptObject aJsObj) {
+	    super(aJsObj);
+	}
     /**
      * The red value.
      */
