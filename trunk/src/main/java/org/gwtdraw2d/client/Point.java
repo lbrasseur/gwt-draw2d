@@ -14,4 +14,11 @@ public class Point extends Component {
     protected native JavaScriptObject create() /*-{
         return new $wnd.draw2d.Point();
     }-*/;
+
+	public Point() {
+		this.create();
+	}
+    public Point(final JavaScriptObject aJsObj) {
+        super(aJsObj);
+    }
 }

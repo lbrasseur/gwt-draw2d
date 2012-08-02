@@ -13,5 +13,8 @@ public class Dimension extends Point {
      */
     protected native JavaScriptObject create() /*-{
         return new $wnd.draw2d.Dimension();
-    }-*/;
+    }-*/;   
+	public Dimension(final JavaScriptObject aJsObj) {
+	    super(aJsObj);
+	}
 }

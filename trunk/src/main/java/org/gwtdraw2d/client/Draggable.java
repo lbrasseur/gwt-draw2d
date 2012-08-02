@@ -9,10 +9,10 @@ import com.google.gwt.core.client.JavaScriptObject;
  */
 public class Draggable extends EventTarget {
 	
-	public Draggable() {
-		this.create();
-	}
-	
+	  
+		public Draggable(final JavaScriptObject aJsObj) {
+		    super(aJsObj);
+		}
     /**
      * {@inheritDoc}
      */

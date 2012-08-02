@@ -7,7 +7,13 @@ import com.google.gwt.core.client.JavaScriptObject;
  * @author lautaro.brasseur
  * TODO: Start coding the wrapper!. 
  */
-public class Canvas extends Component {
+public class Canvas extends Component {	
+	public Canvas() {
+		this.create();
+	}    
+	public Canvas(final JavaScriptObject aJsObj) {
+	    super(aJsObj);
+	}
     /**
      * {@inheritDoc}
      */

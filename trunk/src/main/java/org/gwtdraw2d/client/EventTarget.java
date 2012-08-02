@@ -13,5 +13,8 @@ public class EventTarget extends Component {
      */
     protected native JavaScriptObject create() /*-{
         return new $wnd.draw2d.EventTarget();
-    }-*/;
+    }-*/;		
+    public EventTarget(final JavaScriptObject aJsObj) {
+	    super(aJsObj);
+	}
 }
