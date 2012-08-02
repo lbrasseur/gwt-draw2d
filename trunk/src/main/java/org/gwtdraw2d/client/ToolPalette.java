@@ -23,4 +23,6 @@ public class ToolPalette extends Window {
     public ToolPalette(){
     	this.create();
     }
+    
+    
 }

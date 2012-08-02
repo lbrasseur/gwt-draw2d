@@ -7,7 +7,11 @@ import com.google.gwt.core.client.JavaScriptObject;
  * @author lautaro.brasseur
  * TODO: Start coding the wrapper!. 
  */
-public class Connection extends Line {
+public class Connection extends Line {	
+	public Connection() {
+		this.create();
+	}
+	
     public Connection(JavaScriptObject aJsObj) {
 		super(aJsObj);
 		// TODO Auto-generated constructor stub

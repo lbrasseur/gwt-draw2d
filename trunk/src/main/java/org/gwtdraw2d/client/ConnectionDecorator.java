@@ -8,6 +8,10 @@ import com.google.gwt.core.client.JavaScriptObject;
  * TODO: Start coding the wrapper!. 
  */
 public class ConnectionDecorator extends Component {
+	public ConnectionDecorator() {
+		this.create();
+	}
+	
     /**
      * {@inheritDoc}
      */
@@ -17,6 +21,5 @@ public class ConnectionDecorator extends Component {
     
     public ConnectionDecorator(JavaScriptObject aJsObj) {
 		super(aJsObj);
-		// TODO Auto-generated constructor stub
 	}
 }

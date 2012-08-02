@@ -13,7 +13,7 @@ public class Workflow extends Canvas {
     private String containerId;
 
 	public Workflow() {
-		this.create();
+		super();
 	}
     public Workflow(final JavaScriptObject aJsObj) {
         super(aJsObj);

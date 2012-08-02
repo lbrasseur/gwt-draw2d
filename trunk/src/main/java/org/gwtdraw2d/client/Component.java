@@ -37,6 +37,7 @@ public abstract class Component extends Widget implements HasDoubleClickHandlers
 	 * Default constructor.
 	 */
 	protected Component() {
+		create();
 	}
 
 	/**
