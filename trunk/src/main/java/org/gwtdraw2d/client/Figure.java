@@ -14,7 +14,13 @@ public class Figure extends Component {
 	protected native JavaScriptObject create() /*-{
 		return new $wnd.draw2d.Figure();
 	}-*/;
-
+	
+    public final native Dimension getBounds() /*-{
+	    var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+	    var dimension = @org.gwtdraw2d.client.Dimension::new(Lcom/google/gwt/core/client/JavaScriptObject;)(jsThis.getBounds());
+	    return dimension;
+	}-*/;
+    
 	/**
 	 * Constructor passing JavaScriptObject.
 	 * 
@@ -39,6 +45,11 @@ public class Figure extends Component {
 	    return point;
 	}-*/;
 
+    public final native float getAlpha() /*-{
+	    var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+	    jsThis.getAlpha();
+	}-*/; 
+    
 	/**
 	 * Sets the workflow.
 	 * 
@@ -99,47 +110,52 @@ public class Figure extends Component {
 
 	public final native void onRemove() /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
-
 		jsThis.onRemove();
 	}-*/;
 
 	public final native int getAbsoluteX() /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
-
 		return jsThis.getAbsoluteX();
 	}-*/;
 
 	public final native int getAbsoluteY() /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
-
 		return jsThis.getAbsoluteY();
 	}-*/;
 
     public final native void setZOrderBaseIndex(final int index) /*-{
-    var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
-        
-    jsThis.setZOrderBaseIndex(index);
-}-*/;
+	    var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();	        
+	    jsThis.setZOrderBaseIndex(index);
+	}-*/;
     public final native void setZOrder(final int index) /*-{
-    var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
-        
-    jsThis.setZOrder(index);
-}-*/;
+	    var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();	        
+	    jsThis.setZOrder(index);
+	}-*/;
 	public final native int getX() /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
-
 		return jsThis.getX();
 	}-*/;
-
+	public final native int getMinHeight() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+		return jsThis.getMinHeight();
+	}-*/;
+	public final native int getMinWidth() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+		return jsThis.getMinWidth();
+	}-*/;
+	
+	public final native String getProperty(final String id) /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();	
+		return jsThis.getProperty(id);
+	}-*/;
+	
 	public final native int getY() /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
-
 		return jsThis.getY();
 	}-*/;
 
 	public final native int getWidth() /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
-
 		return jsThis.getWidth();
 	}-*/;
 

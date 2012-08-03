@@ -37,7 +37,7 @@ public class Border extends Component {
     /**
      * Gets the background color.
      */
-    public native Color getColor(final Color color) /*-{
+    public native Color getColor() /*-{
         var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
 
         return jsThis.getColor();
