@@ -37,12 +37,4 @@ public class CommandStack extends Command {
         jsThis.execute(jsCommand);
     }-*/;
     
-    public final native void undo() /*-{
-    var jsThis = this.@org.gwtdraw2d.client.CommandStack::getJsObj()();
-    jsThis.undo();
-	}-*/;
-    public final native void redo() /*-{
-    var jsThis = this.@org.gwtdraw2d.client.CommandStack::getJsObj()();
-    jsThis.redo();
-	}-*/;
 }

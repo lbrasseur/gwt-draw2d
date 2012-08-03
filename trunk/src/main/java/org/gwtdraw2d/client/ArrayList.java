@@ -47,4 +47,10 @@ public class ArrayList extends Component {
 		var jsThis = this.@org.gwtdraw2d.client.ArrayList::getJsObj()();
 		jsThis.removeAllElements();
 	}-*/;
+    public final native Component get(final int i) /*-{
+	    var jsThis = this.@org.gwtdraw2d.client.ArrayList::getJsObj()();
+	    var figure = @org.gwtdraw2d.client.Figure::new(Lcom/google/gwt/core/client/JavaScriptObject;)(jsThis.get(i));
+	    return figure;
+	}-*/;
+    
 }

@@ -229,8 +229,6 @@ public class Figure extends Component {
     public final native void setBorder(final Border border) /*-{
     var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
     var jsBorder = border.@org.gwtdraw2d.client.Border::getJsObj()();
-
-    jsBorder.setWorkflow(jsThis.workflow);
     jsThis.setBorder(jsBorder);
 }-*/;  
     public final native void setAlpha(final float percent) /*-{

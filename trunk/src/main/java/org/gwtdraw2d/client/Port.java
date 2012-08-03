@@ -81,10 +81,6 @@ public class Port extends Rectangle {
 		var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();
 		jsThis.setName(name);
 	}-*/;
-
-
-
-
     
     public final native Dimension getAbsoluteBounds()/*-{
     var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();
@@ -102,6 +98,7 @@ public class Port extends Rectangle {
 	        
 	    jsThis.setLineWidth(width);
 	}-*/;
+    
     public final native void setHideIfConnected( final Boolean flag) /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();    
 		jsThis.setHideIfConnected(flag);

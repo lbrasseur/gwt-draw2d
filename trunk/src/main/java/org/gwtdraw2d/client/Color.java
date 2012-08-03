@@ -75,4 +75,22 @@ public class Color extends Component {
         return jsThis.getRed();
     }-*/;
     
+    public final native Color getIdealTextColor() /*-{
+	    var jsThis = this.@org.gwtdraw2d.client.Color::getJsObj()();
+	    var color = @org.gwtdraw2d.client.Color::new(Lcom/google/gwt/core/client/JavaScriptObject;)(jsThis.getIdealTextColor());
+	    return color;
+	}-*/;
+    
+    public final native Color lighter(float faction) /*-{
+	    var jsThis = this.@org.gwtdraw2d.client.Color::getJsObj()();
+	    var color = @org.gwtdraw2d.client.Color::new(Lcom/google/gwt/core/client/JavaScriptObject;)(jsThis.lighter(faction));
+	    return color;
+	}-*/;
+    
+    public final native Color darker(float faction) /*-{
+	    var jsThis = this.@org.gwtdraw2d.client.Color::getJsObj()();
+	    var color = @org.gwtdraw2d.client.Color::new(Lcom/google/gwt/core/client/JavaScriptObject;)(jsThis.darker(faction));
+	    return color;
+	}-*/;
+    
 }
