@@ -22,6 +22,6 @@ public class Circle extends Oval {
         return new $wnd.draw2d.Circle();
     }-*/;
 
-    
+
 
 }

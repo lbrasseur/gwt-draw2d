@@ -8,6 +8,14 @@ import com.google.gwt.core.client.JavaScriptObject;
  * TODO: Start coding the wrapper!. 
  */
 public class ConnectionRouter extends Component {
+	public ConnectionRouter() {
+		this.create();
+	}
+	
+    public ConnectionRouter(JavaScriptObject aJsObj) {
+		super(aJsObj);
+		// TODO Auto-generated constructor stub
+	}
     /**
      * {@inheritDoc}
      */
