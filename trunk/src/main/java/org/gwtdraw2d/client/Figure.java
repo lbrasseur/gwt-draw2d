@@ -161,26 +161,22 @@ public class Figure extends Component {
 
 	public final native int getHeight() /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
-
 		return jsThis.getHeight();
 	}-*/;
 
 	public final native int getZOrder() /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
-
 		return jsThis.getZOrder();
 	}-*/;
 	
 	public final native String getId() /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
-
 		return jsThis.getId();
 	}-*/;
 	public final native String setId(final String id) /*-{
-	var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
-
-	return jsThis.setId(id);
-}-*/;
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+		return jsThis.setId(id);
+	}-*/;
     public final native boolean isOver(final int x, final int y)/*-{
     var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
     return jsThis.isOver(x,y);
@@ -243,14 +239,14 @@ public class Figure extends Component {
         jsThis.setSnapToGridAnchor(jsPoint);
     }-*/;   
     public final native void setBorder(final Border border) /*-{
-    var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
-    var jsBorder = border.@org.gwtdraw2d.client.Border::getJsObj()();
-    jsThis.setBorder(jsBorder);
-}-*/;  
+	    var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+	    var jsBorder = border.@org.gwtdraw2d.client.Border::getJsObj()();
+	    jsThis.setBorder(jsBorder);
+	}-*/;  
     public final native void setAlpha(final float percent) /*-{
-    var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
-    jsThis.setAlpha(percent);
-}-*/;  
+	    var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+	    jsThis.setAlpha(percent);
+	}-*/;  
 	/**
 	 * Sets the menu builder.
 	 * 
