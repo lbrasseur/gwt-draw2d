@@ -1,5 +1,7 @@
 package org.gwtdraw2d.client;
 
+import java.util.Map;
+
 import com.google.gwt.core.client.JavaScriptObject;
 
 /**
@@ -62,7 +64,36 @@ public class Figure extends Component {
 
 		jsThis.setWorkflow(jsWorkflow);
 	}-*/;
-
+	
+	public final native boolean getCanDrag() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+		return jsThis.getCanDrag();
+	}-*/;
+	
+	public final native boolean getCanSnapToHelper() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+		return jsThis.getCanSnapToHelper();
+	}-*/;
+	    
+	public final native Menu getContextMenu() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+		return jsThis.getContextMenu();
+	}-*/;
+	
+	public final native CompartmentFigure getParent() /*-{
+	var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+	return jsThis.getParent();
+	}-*/;    
+	
+	public final native Map getProperties() /*-{
+	var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+	return jsThis.getProperties();
+	}-*/;  
+	
+	public final native Point getPosition() /*-{
+	var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+	return jsThis.getPosition();
+	}-*/;   	
 	/**
 	 * Sets the figure dimension.
 	 * 
@@ -103,14 +134,19 @@ public class Figure extends Component {
 		jsThis.onMouseEnter();
 	}-*/;
 
+	public final native void onKeyDown(final int keyCode, final boolean ctrl) /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
+		jsThis.onKeyDown(keyCode, ctrl);
+	}-*/;
+	
 	public final native void onMouseLeave() /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
 		jsThis.onMouseLeave();
 	}-*/;
 
-	public final native void onRemove() /*-{
+	public final native void onRemove(final Workflow workflow) /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
-		jsThis.onRemove();
+		jsThis.onRemove(workflow);
 	}-*/;
 
 	public final native int getAbsoluteX() /*-{

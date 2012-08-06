@@ -146,20 +146,32 @@ public class Workflow extends Canvas {
         jsThis.moveFront(jsFigure);
     }-*/;
     
-    public final native void setSnapToGrid( final Boolean flag) /*-{
+    public final native void setSnapToGrid( final boolean flag) /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Workflow::getJsObj()();    
 		jsThis.setSnapToGrid(flag);
 	}-*/;
     
-    public final native void setSnapToGeometry( final Boolean flag) /*-{
+    public final native void setPanning( final boolean flag) /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Workflow::getJsObj()();    
+		jsThis.setPanning(flag);
+	}-*/;
+    
+    public final native void setSnapToGeometry( final boolean flag) /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Workflow::getJsObj()();    
 		jsThis.setSnapToGeometry(flag);
 	}-*/;
+    
     public final native void setGridWidth(final int x, final int y) /*-{
         var jsThis = this.@org.gwtdraw2d.client.Workflow::getJsObj()();
         jsThis.setGridWidth( x, y);
+    }-*/;    
+
+    public final native void setCurrentSelection(final Figure figure) /*-{
+        var jsThis = this.@org.gwtdraw2d.client.Workflow::getJsObj()();
+        jsThis.setCurrentSelection(figure);
     }-*/;
-    public final native void scrollTo(final int x, final int y, final Boolean fast) /*-{
+    
+    public final native void scrollTo(final int x, final int y, final boolean fast) /*-{
 	    var jsThis = this.@org.gwtdraw2d.client.Workflow::getJsObj()();
 	    jsThis.scrollTo( x, y, fast);
 	}-*/;
