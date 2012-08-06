@@ -19,4 +19,7 @@ public class InputDialog extends Dialog {
     protected native JavaScriptObject create() /*-{
         return new $wnd.draw2d.InputDialog();
     }-*/;
+    
+    
+
 }

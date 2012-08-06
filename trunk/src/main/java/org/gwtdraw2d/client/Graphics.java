@@ -8,7 +8,11 @@ import com.google.gwt.core.client.JavaScriptObject;
  * TODO: Start coding the wrapper!. 
  */
 public class Graphics extends Component {
-    /**
+	public Graphics() {
+		super();
+	}	
+	
+	/**
      * {@inheritDoc}
      */
     protected native JavaScriptObject create() /*-{
