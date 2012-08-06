@@ -19,8 +19,4 @@ public class PropertyDialog extends Dialog {
         return new $wnd.draw2d.PropertyDialog();
     }-*/;    
     
-    public final native void onOk() /*-{
-    var jsThis = this.@org.gwtdraw2d.client.PropertyDialog::getJsObj()();
-    return jsThis.onOk();
-}-*/;
 }

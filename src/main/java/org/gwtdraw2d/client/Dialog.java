@@ -23,4 +23,14 @@ public class Dialog extends Window {
     protected native JavaScriptObject create() /*-{
         return new $wnd.draw2d.Dialog();
     }-*/;
+	public final native void onCancel() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Dialog::getJsObj()();
+		return jsThis.onCancel();
+	}-*/;
+	
+	public final native void onOk() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.Dialog::getJsObj()();
+		return jsThis.onOk();
+	}-*/;
+
 }
