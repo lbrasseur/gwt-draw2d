@@ -87,11 +87,11 @@ public class Port extends Rectangle {
     return jsThis.getAbsoluteBounds();
 	}-*/;
     
+    /*
     public final native Node getParent()/*-{
     var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();
     return jsThis.getParent();
 	}-*/;
-    
     
     public final native void setLineWidth(final int width) /*-{
 	    var jsThis = this.@org.gwtdraw2d.client.Port::getJsObj()();
