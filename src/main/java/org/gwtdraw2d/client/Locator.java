@@ -8,7 +8,13 @@ import com.google.gwt.core.client.JavaScriptObject;
  * TODO: Start coding the wrapper!. 
  */
 public class Locator extends Component {
-    /**
+	public Locator() {
+		super();
+	}    
+	public Locator(final JavaScriptObject aJsObj) {
+	    super(aJsObj);
+	}
+	/**
      * {@inheritDoc}
      */
     protected native JavaScriptObject create() /*-{

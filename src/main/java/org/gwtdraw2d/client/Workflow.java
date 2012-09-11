@@ -15,9 +15,11 @@ public class Workflow extends Canvas {
 	public Workflow() {
 		super();
 	}
+	
     public Workflow(final JavaScriptObject aJsObj) {
         super(aJsObj);
     }
+    
     /**
      * Constructor.
      * @param aContainerId The id for the Workflow container

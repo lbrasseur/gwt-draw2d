@@ -26,12 +26,12 @@ public abstract class Component extends Widget implements HasDoubleClickHandlers
 	 * Class initialization method.
 	 */
 	private static native void initClass() /*-{
-											var gwtdraw2d = new Object();
-											var idMap = new Array();
-
-											$wnd.gwtdraw2d = gwtdraw2d;
-											$wnd.gwtdraw2d.idMap = idMap;
-											}-*/;
+		var gwtdraw2d = new Object();
+		var idMap = new Array();
+		
+		$wnd.gwtdraw2d = gwtdraw2d;
+		$wnd.gwtdraw2d.idMap = idMap;
+	}-*/;
 
 	/**
 	 * Default constructor.
@@ -50,7 +50,14 @@ public abstract class Component extends Widget implements HasDoubleClickHandlers
 		this.jsObj = aJsObj;
 		initComponent();
 	}
-
+	
+	/**
+	 * sets the wrapped JavaScriptObject.
+	 * @param aJsObj
+	 */
+	protected final void setJsObj(final JavaScriptObject aJsObj) {
+		jsObj = aJsObj;
+	}
 	/**
 	 * Gets the wrapperd JavaScriptObject. If it is null, it is created.
 	 * 
@@ -58,6 +65,7 @@ public abstract class Component extends Widget implements HasDoubleClickHandlers
 	 */
 	protected final JavaScriptObject getJsObj() {
 		if (jsObj == null) {
+			
 			jsObj = create();
 			initComponent();
 		}
@@ -71,26 +79,30 @@ public abstract class Component extends Widget implements HasDoubleClickHandlers
 	 */
 	protected abstract JavaScriptObject create();
 
+	public Component getThis(){
+		return this;
+	}
 	/**
 	 * Component initialization method.
 	 */
-	private native void initComponent() /*-{
-										var jsThis = this.@org.gwtdraw2d.client.Component::getJsObj()();
-										if (jsThis.id) {
-										$wnd.gwtdraw2d.idMap[jsThis.id] = this;
-										}
-										}-*/;
+	public native void initComponent() /*-{		                   
+		var jsThis = this.@org.gwtdraw2d.client.Component::getJsObj()();
+		if (jsThis.id) {					
+			$wnd.gwtdraw2d.idMap[jsThis.id] = this;
+			//$wnd.gwtdraw2d.idMap[jsThis.id] = jsThis;			
+		}
+	}-*/;
 
 	/**
 	 * Lookups for a component with a given JavaScriptObject ID.
 	 * 
-	 * @param jsObjId
-	 *            The ID of the JavaScriptObject
+	 * @param jsObjId The ID of the JavaScriptObject
 	 * @return The component
 	 */
 	public static final native Component getComponent(final String jsObjId) /*-{
-																			return $wnd.gwtdraw2d.idMap[jsObjId];
-																			}-*/;
+	    var test = $wnd.gwtdraw2d.idMap[jsObjId];
+		return $wnd.gwtdraw2d.idMap[jsObjId];
+    }-*/;
 
 	/**
 	 * Sets the menu builder.
@@ -101,18 +113,18 @@ public abstract class Component extends Widget implements HasDoubleClickHandlers
 	 *            The menu builder
 	 */
 	protected final native void setMenuBuilder(final JavaScriptObject target, final MenuBuilder menuBuilder) /*-{
-																												target.getContextMenu = function() {
-																												var menu = menuBuilder.@org.gwtdraw2d.client.MenuBuilder::buildMenu()();
-																												var jsMenu = menu.@org.gwtdraw2d.client.Menu::getJsObj()();
-																												return jsMenu;
-																												}
-																												}-*/;
+		target.getContextMenu = function() {
+			var menu = menuBuilder.@org.gwtdraw2d.client.MenuBuilder::buildMenu()();
+			var jsMenu = menu.@org.gwtdraw2d.client.Menu::getJsObj()();
+			return jsMenu;
+		}
+	}-*/;
 
 	public static native void exportDoubleClickMethod() /*-{
-														$wnd.fireDoubleClick = function(id) {
-														@org.gwtdraw2d.client.Component::fireDoubleClick(Ljava/lang/String;)(id);
-														}   
-														}-*/;
+		$wnd.fireDoubleClick = function(id) {
+			@org.gwtdraw2d.client.Component::fireDoubleClick(Ljava/lang/String;)(id);
+		}   
+	}-*/;
 
 	public static void fireDoubleClick(String id) {
 		Component component = (Component) Window.getComponent(id);
