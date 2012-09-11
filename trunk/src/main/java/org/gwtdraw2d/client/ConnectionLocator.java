@@ -8,10 +8,25 @@ import com.google.gwt.core.client.JavaScriptObject;
  * TODO: Start coding the wrapper!. 
  */
 public class ConnectionLocator extends Locator {
-    /**
-     * {@inheritDoc}
-     */
-    protected native JavaScriptObject create() /*-{
-        return new $wnd.draw2d.ConnectionLocator();
-    }-*/;
+	private Connection connection;
+	
+	public ConnectionLocator() {
+		super();
+	}    
+	public ConnectionLocator(final JavaScriptObject aJsObj) {
+	    super(aJsObj);
+	}
+	
+	public ConnectionLocator(final Connection passedConnection) {
+		this.connection = passedConnection;
+		this.setJsObj(initialize());
+		super.initComponent();
+    } 
+	
+    protected native JavaScriptObject initialize() /*-{ 
+	    var connection = this.@org.gwtdraw2d.client.ConnectionLocator::connection;	    
+	    var jsConnection = connection.@org.gwtdraw2d.client.Connection::getJsObj()();
+		return new $wnd.draw2d.ConnectionLocator(jsConnection);		
+	}-*/;
+	
 }

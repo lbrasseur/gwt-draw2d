@@ -10,8 +10,18 @@ import com.google.gwt.core.client.JavaScriptObject;
 public class Connection extends Line {	
 	public Connection() {
 		this.create();
+		initComponent();
 	}
 	
+	
+    public final native void addFigure(final Figure figure, ConnectionLocator locator) /*-{
+	    var jsThis = this.@org.gwtdraw2d.client.Connection::getJsObj()();
+	    var jsFigure = figure.@org.gwtdraw2d.client.Figure::getJsObj()();
+	    var jsLocator = locator.@org.gwtdraw2d.client.ConnectionLocator::getJsObj()();
+	    jsFigure.setWorkflow(jsThis.workflow);
+	    jsThis.addFigure(jsFigure, jsLocator);
+	}-*/;
+    
     public Connection(JavaScriptObject aJsObj) {
 		super(aJsObj);
 		// TODO Auto-generated constructor stub

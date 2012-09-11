@@ -8,6 +8,11 @@ import com.google.gwt.core.client.JavaScriptObject;
  * TODO: Start coding the wrapper!. 
  */
 public class LineBorder extends Border {
+	private int lineWidth;
+	public LineBorder(final int passedWidth) {
+		lineWidth = passedWidth;	
+    }
+	
     public LineBorder(JavaScriptObject aJsObj) {
 		super(aJsObj);
 		// TODO Auto-generated constructor stub
@@ -17,6 +22,7 @@ public class LineBorder extends Border {
      * {@inheritDoc}
      */
     protected native JavaScriptObject create() /*-{
-        return new $wnd.draw2d.LineBorder();
+        var jsLineWidth = this.@org.gwtdraw2d.client.LineBorder::lineWidth;
+        return new $wnd.draw2d.LineBorder(jsLineWidth);
     }-*/;
 }

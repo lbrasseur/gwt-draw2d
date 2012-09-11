@@ -41,6 +41,11 @@ public class RoundCornerFigure extends Node{
 		return jsThis.getTitle();
 	}-*/;
 	
+	public final native String toggle() /*-{
+		var jsThis = this.@org.gwtdraw2d.client.RoundCornerFigure::getJsObj()();
+		return jsThis.toggle();
+	}-*/;
+	
 	public  final native void setContent(final String content) /*-{
 		var jsThis = this.@org.gwtdraw2d.client.RoundCornerFigure::getJsObj()();
 		jsThis.setContent(content);

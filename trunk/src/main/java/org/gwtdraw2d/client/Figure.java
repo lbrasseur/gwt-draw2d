@@ -93,7 +93,8 @@ public class Figure extends Component {
 	public final native Point getPosition() /*-{
 	var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
 	return jsThis.getPosition();
-	}-*/;   	
+	}-*/;
+	
 	/**
 	 * Sets the figure dimension.
 	 * 
@@ -104,9 +105,9 @@ public class Figure extends Component {
 	 */
 	public final native void setDimension(final int width, final int height) /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
-
 		jsThis.setDimension(width, height);
 	}-*/;
+	
 	public final native void setToolTip(final String tipText) /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
 		jsThis.setToolTip(tipText);
@@ -258,15 +259,16 @@ public class Figure extends Component {
 		jsThis.setDeleteable(flag);
 	}-*/;
     
-    public final native void setProperty( final String property, final String value) /*-{
+    public native void setProperty( final String property, final String value) /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();    
 		jsThis.setProperty(property, value);
 	}-*/;
+    
     public final native void setPosition( final int xPos, final int yPos) /*-{
 		var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();    
-		jsThis.setPosition(xPos, yPos);
-		
+		jsThis.setPosition(xPos, yPos);		
 	}-*/;   
+    
     public final native void setSnapToGridAnchor(final Point point) /*-{
         var jsThis = this.@org.gwtdraw2d.client.Figure::getJsObj()();
         var jsPoint = point.@org.gwtdraw2d.client.Point::getJsObj()();
