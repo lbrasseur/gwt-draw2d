@@ -1,0 +1,1 @@
+The idea is to create GWT wrappers for Open-jACOB Draw2d javascript library (http://www.draw2d.org/).
